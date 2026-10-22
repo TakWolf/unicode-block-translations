@@ -24,7 +24,9 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
-dependencies = []
+dependencies = [
+    "langcodes>=3.5.0",
+]
 
 [dependency-groups]
 dev = [
