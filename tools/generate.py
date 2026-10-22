@@ -72,21 +72,19 @@ def main() -> None:
         shutil.rmtree(TRANSLATIONS_DIR)
     TRANSLATIONS_TMP_DIR.rename(TRANSLATIONS_DIR)
 
-    supported_languages_string = '\n'.join(
-        f'    {language!r},'
-        for language in sorted(supported_languages)
-    )
-    meta_src = (
-        'from typing import Final\n'
-        '\n'
-        f'UNICODE_VERSION: Final = {unicode_version!r}\n'
-        '\n'
-        'SUPPORTED_LANGUAGES: Final = (\n'
-        f'{supported_languages_string}\n'
-        ')\n'
-    )
+    meta_lines = []
+    meta_lines.append('from typing import Final')
+    meta_lines.append('')
+    meta_lines.append(f'UNICODE_VERSION: Final = {unicode_version!r}')
+    meta_lines.append('')
+    meta_lines.append('SUPPORTED_LANGUAGES: Final = (')
+    for language in sorted(supported_languages):
+        meta_lines.append(f'    {language!r},')
+    meta_lines.append(')')
+    meta_lines.append('')
+
     SRC_DIR.mkdir(parents=True, exist_ok=True)
-    SRC_DIR.joinpath('meta.py').write_text(meta_src, 'utf-8')
+    SRC_DIR.joinpath('meta.py').write_text('\n'.join(meta_lines), 'utf-8')
 
 
 if __name__ == '__main__':
