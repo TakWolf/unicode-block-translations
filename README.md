@@ -11,6 +11,18 @@ Translations of Unicode block names, with support for language and regional vari
 pip install unicode-block-translations
 ```
 
+## Usage
+
+```python
+import unicode_block_translations
+
+assert unicode_block_translations.translate('Basic Latin', 'zh') == '基本拉丁字母'
+```
+
+## Dependencies
+
+- [Langcodes](https://github.com/rspeer/langcodes)
+
 ## License
 
 [MIT License](LICENSE)
