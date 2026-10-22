@@ -1,0 +1,27 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    environment:
+      name: pypi
+      url: https://pypi.org/project/unicode-block-translations/
+    permissions:
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v10.3.2
+        with:
+          python-version: "3.15"
+      - name: Install dependencies
+        run: uv sync
+      - name: Build
+        run: uv build
+      - name: Publish
+        run: uv publish

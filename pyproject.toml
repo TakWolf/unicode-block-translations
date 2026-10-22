@@ -1,0 +1,46 @@
+[project]
+name = "unicode-block-translations"
+version = "0.0.0"
+description = "Translations of Unicode block names, with support for language and regional variants"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "TakWolf" },
+]
+maintainers = [
+    { name = "TakWolf" },
+]
+keywords = ["unicode"]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+    "Operating System :: OS Independent",
+]
+
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/TakWolf/unicode-block-translations"
+Source = "https://github.com/TakWolf/unicode-block-translations"
+Issues = "https://github.com/TakWolf/unicode-block-translations/issues"
+
+[build-system]
+requires = ["uv_build"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
