@@ -1,6 +1,6 @@
 [project]
 name = "unicode-block-translations"
-version = "0.0.0"
+version = "18.0.0"
 description = "Translations of Unicode block names, with support for language and regional variants"
 readme = "README.md"
 license = "MIT"
