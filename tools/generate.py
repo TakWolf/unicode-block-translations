@@ -15,7 +15,7 @@ def _parse_blocks() -> tuple[str, list[str]]:
     regex = re.compile(r'\.\.|;\s')
     for line in lines:
         line = line.strip()
-        if line == '' or line.startswith('#'):
+        if not line or line.startswith('#'):
             continue
 
         block_name = regex.split(line)[2]
@@ -28,7 +28,7 @@ def _parse_translation(text: str) -> dict[str, str]:
     translation = {}
     for line in text.splitlines():
         line = line.strip()
-        if line == '' or line.startswith('#'):
+        if not line or line.startswith('#'):
             continue
 
         parts = line.split(':', 1)

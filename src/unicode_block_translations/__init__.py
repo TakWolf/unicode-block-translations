@@ -13,7 +13,7 @@ def _parse_translation(text: str) -> dict[str, str]:
     translation = {}
     for line in text.splitlines():
         line = line.strip()
-        if line == '' or line.startswith('#'):
+        if not line or line.startswith('#'):
             continue
 
         parts = line.split(':', 1)
